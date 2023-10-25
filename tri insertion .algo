@@ -1,0 +1,46 @@
+FUNCTION remplir(n:INTEGER) : ARRAY_OF INTEGER
+  VAR
+    i :INTEGER
+  BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        read("remplir  ensemble de nombre ",t[i]);
+    END_FOR
+    RETURN t;
+  END
+
+
+
+PROCEDURE tri_insertion (var t:ARRAY_OF INTEGER ,n: INTEGER)
+VAR
+    nb, i, j : INTEGER ; 
+
+BEGIN
+   FOR i FROM 1 TO n-1 STEP 1  DO
+    nb:= t[i];
+    j:=i;
+    WHILE (t[j-1]>nb) DO
+        t[j]:=t[j-1]
+        j:=j-1;
+        
+    END_WHILE
+ t[j]:= nb ; 
+   END_FOR
+END
+
+
+ALGORITHM 
+VAR
+   n,i:INTEGER;
+t: ARRAY_OF INTEGER[n];
+BEGIN
+  read(n);
+ t:=remplir(t,n );    
+ tri_insertion ( t ,n)
+
+ FOR i FROM 0 TO n-1 STEP 1  DO
+       write(" tableau triee : " t[i]);
+    END_FOR
+   
+ 
+ 
+END
